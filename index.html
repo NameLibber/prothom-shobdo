@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prothom Shobdo · প্রথম শব্দ</title>
+<meta name="description" content="শিক্ষক ছাড়াই ইংরেজি শিখুন। বিদেশে প্রয়োজনীয় শব্দ, বাক্য ও কথোপকথন বাংলা অর্থ ও উচ্চারণসহ।">
+<meta name="theme-color" content="#0b6b4a">
+<meta property="og:title" content="Prothom Shobdo · প্রথম শব্দ">
+<meta property="og:description" content="শিক্ষক ছাড়াই ইংরেজি শিখুন। বিদেশে প্রয়োজনীয় শব্দ, বাক্য ও কথোপকথন বাংলা অর্থ ও উচ্চারণসহ।">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b6b4a'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23fff'%3E%E0%A6%85%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700&family=Hind+Siliguri:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div>
+      <h1>Prothom Shobdo · প্রথম শব্দ</h1>
+      <p>শিক্ষক ছাড়াই ইংরেজি শিখুন। প্রতিটি শব্দের বাংলা অর্থ ও উচ্চারণ আছে। 🔊 চাপলে শব্দটি শোনা যাবে।</p>
+    </div>
+    <div class="bar">
+      <button class="btn" id="bigBtn" aria-pressed="false">বড় লেখা (A+)</button>
+      <button class="btn" id="slowBtn" aria-pressed="false">ধীরে বলুন</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="progress" aria-hidden="true"><i id="pbar"></i></div>
+    <p class="small" id="ptext"></p>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-t="learn">শিখুন · Learn</button>
+    <button class="tab" role="tab" data-t="cards">কার্ড · Cards</button>
+    <button class="tab" role="tab" data-t="quiz">পরীক্ষা · Quiz</button>
+    <button class="tab" role="tab" data-t="review" id="reviewTab">ভুল শব্দ · Review</button>
+    <button class="tab" role="tab" data-t="travel">ভ্রমণ · Travel</button>
+    <button class="tab" role="tab" data-t="talk">কথোপকথন · Talk</button>
+    <button class="tab" role="tab" data-t="make">বাক্য বানান · Build</button>
+  </div>
+
+  <section id="p-learn">
+    <div class="wrap" style="padding:0">
+      <div class="bar">
+        <input type="search" id="q" placeholder="শব্দ খুঁজুন (English বা বাংলা)" aria-label="Search words">
+        <select id="cat" aria-label="Category"></select>
+      </div>
+      <p class="small" id="count"></p>
+      <div class="list" id="list"></div>
+    </div>
+  </section>
+
+  <section id="p-cards" hidden>
+    <div class="wrap" style="padding:0">
+      <div class="bar"><select id="ccat" aria-label="Card category"></select><span class="small">কার্ডে চাপ দিলে অর্থ দেখা যাবে।</span></div>
+      <button class="card" id="card"></button>
+      <div class="center">
+        <button class="btn" id="cSay">🔊 শুনুন</button>
+        <button class="btn" id="cAgain">আবার দেখব</button>
+        <button class="btn primary" id="cKnow">✓ শিখেছি</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-quiz" hidden>
+    <div class="wrap" style="padding:0">
+      <div class="bar"><select id="qcat" aria-label="Quiz category"></select><span class="small" id="score"></span></div>
+      <div class="card" id="qcard"></div>
+      <div class="opts" id="opts"></div>
+      <div class="center"><button class="btn primary" id="next" hidden>পরের প্রশ্ন →</button></div>
+    </div>
+  </section>
+
+  <section id="p-review" hidden>
+    <div class="wrap" style="padding:0">
+      <p class="small">পরীক্ষায় যে শব্দগুলোতে ভুল হয়েছে, সেগুলো এখানে বারবার অনুশীলন করতে পারবেন।</p>
+      <p class="small" id="rcount"></p>
+      <button class="card" id="rcard"></button>
+      <div class="center">
+        <button class="btn" id="rSay">🔊 শুনুন</button>
+        <button class="btn" id="rSkip">পরেরটা</button>
+        <button class="btn primary" id="rKnow">✓ শিখে গেছি</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-travel" hidden>
+    <div class="wrap" style="padding:0">
+      <p class="small">বিদেশে অপরিচিত মানুষের সাথে কথা বলার জন্য ছোট ছোট বাক্য। ফোনটি দেখিয়ে বা 🔊 চেপে শোনাতে পারেন।</p>
+      <div class="list" id="plist"></div>
+    </div>
+  </section>
+
+  <section id="p-talk" hidden>
+    <div class="wrap" style="padding:0">
+      <p class="small">বাস্তব পরিস্থিতির কথোপকথন। সবুজ ঘরের কথাগুলো আপনি বলবেন, সাদা ঘরের কথাগুলো অন্যজন বলবে।</p>
+      <div class="bar"><select id="dsel" aria-label="Situation"></select><button class="btn primary" id="dAll">▶ পুরোটা শুনুন</button><button class="btn" id="dStop">■ থামান</button></div>
+      <div class="talk" id="talk"></div>
+    </div>
+  </section>
+
+  <section id="p-make" hidden>
+    <div class="wrap" style="padding:0">
+      <p class="small">একটি বাক্য বেছে নিন, তারপর নিচের শব্দে চাপ দিন। আপনার দরকারি বাক্য তৈরি হয়ে যাবে।</p>
+      <select id="msel" aria-label="Sentence pattern"></select>
+      <div class="chips" id="mopts"></div>
+      <div class="card static" id="mout"></div>
+      <div class="center"><button class="btn primary" id="mSay">🔊 বাক্যটি শুনুন</button></div>
+    </div>
+  </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
