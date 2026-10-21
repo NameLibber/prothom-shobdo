@@ -4,6 +4,8 @@ A free, offline-friendly web app that helps Bengali speakers learn everyday Engl
 
 **Live app:** _add your deployed link here after hosting_
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NameLibber/prothom-shobdo)
+
 ## Features
 
 - **শিখুন · Learn** — a searchable, categorized word list (900+ words) with Bengali meaning, phonetic pronunciation, and audio.
